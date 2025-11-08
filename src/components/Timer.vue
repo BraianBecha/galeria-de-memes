@@ -112,9 +112,10 @@ return answer;
 </script>
 
 <style>
- @import '../assets/main.css';
  
-@import url('../assets/base.css');
+@import url('../assets/main.css');
+ /*
+@import url('../assets/base.css');   */
 
 .img-timer{
 margin: auto;

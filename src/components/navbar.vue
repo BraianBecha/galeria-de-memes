@@ -75,8 +75,7 @@ opcion1(){
 <style scoped>
 
 
-@import url('../src/assets/main.css');
-@import url('../src/assets/base.css');
+@import url('../assets/main.css');
 #menu-p >p{
    
     font-size: 0.8rem;
