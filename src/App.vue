@@ -37,9 +37,13 @@
 
 <style scoped> 
 
-@import url('../assets/main.css');
-@import url('../assets/base.css');
-
+@import url('../src/assets/main.css');
+@import url('../src/assets/base.css');
+body{
+  
+background-color: linear-gradient(90deg, rgb(204, 197, 197) 0%, rgba(255, 248, 248, 1) 50%, rgb(241, 223, 211) 100%);
+  
+}
 main{
   margin-top: 10rem;
 }
