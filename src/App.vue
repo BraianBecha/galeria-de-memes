@@ -37,6 +37,9 @@
 
 <style scoped> 
 
+@import url('../assets/main.css');
+@import url('../assets/base.css');
+
 main{
   margin-top: 10rem;
 }

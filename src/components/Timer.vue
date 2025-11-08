@@ -113,6 +113,9 @@ return answer;
 
 <style>
  @import '../assets/main.css';
+ 
+@import url('../assets/base.css');
+
 .img-timer{
 margin: auto;
      width: 100%;
