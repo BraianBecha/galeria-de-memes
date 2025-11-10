@@ -11,11 +11,11 @@
   
 
   <div  v-if = "!islate">
-     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Random" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
+     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Familia y vínculos" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
 
    
 
-   <img-container  :imgSrc = this.unlinkfoto />
+   <img-container :imgSrc = this.unlinkfoto />
 
    </div>
  
@@ -23,8 +23,13 @@
     <mensaje-de-fin mensaje1="Se terminó el tiempo" mensaje2="¡Gracias por participar!" mensaje3="Seguinos en redes para futuras campañas" />
     </div>
 
+
+    
     
   </main>
+
+
+
   <footer>
 
 
@@ -54,7 +59,7 @@ export default {
   data() {
     return {
       unlinkfoto : "",
-      tiempofinal:"2025-11-09T18:20:00",     
+      tiempofinal:"2025-11-11T23:58:00",     
       valorprueba: Boolean(false),
       flag: false
       

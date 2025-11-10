@@ -38,7 +38,7 @@ export default {
 
             console.log("cargarImagenes()");
              /* this.imagenes = import.meta.glob('../assets/marte-1/*.{jpg,png,jpeg,gif}', { eager: true }); */
-             this.imagenes = import.meta.glob('../assets/memes1/*.{jpg,png,jpeg,gif}', { eager: true });
+             this.imagenes = import.meta.glob('../assets/memes-familia-vinculos/*.{jpg,png,jpeg,gif}', { eager: true });
              this.uris = Object.values(this.imagenes).map(modulo => modulo.default);
 
                   for (const path in this.uris) {  
