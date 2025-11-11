@@ -20,7 +20,7 @@
    </div>
  
     <div v-else >
-    <mensaje-de-fin mensaje1="Se terminó el tiempo" mensaje2="¡Gracias por participar!" mensaje3="Seguinos en redes para futuras campañas" />
+    <mensaje-de-fin mensaje1="Se terminó el tiempo" mensaje2="¡Gracias por participar!" mensaje3="---"/>
     </div>
 
 
