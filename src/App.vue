@@ -91,33 +91,6 @@ setup() {
    };
    
    
-    const enviarDescarga = async () => {
-      console.log('Enviando datos al servidor...')
-
-      const payload = {
-        fecha: new Date().toISOString(),
-        accion: "Descarga"
-      }
-
-      try {
-        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        })
-
-        if (!respuesta.ok) {
-          throw new Error(`Error HTTP: ${respuesta.status}`)
-        }
-
-        const data = await respuesta.json()
-        console.log('Respuesta del servidor:', data)
-      } catch (error) {
-        console.error('Error al enviar la solicitud:', error)
-      }
-    }
 
 
     const enviarDatos = async () => {
@@ -141,8 +114,9 @@ setup() {
           throw new Error(`Error HTTP: ${respuesta.status}`)
         }
 
-        const data = await respuesta.json()
-        console.log('Respuesta del servidor:', data)
+        const texto = await respuesta.text()
+        console.log('Respuesta del servidor (texto):', texto)
+
       } catch (error) {
         console.error('Error al enviar la solicitud:', error)
       }

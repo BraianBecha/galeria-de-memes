@@ -70,13 +70,14 @@ export default {
           throw new Error(`Error HTTP: ${respuesta.status}`)
         }
 
-        const data = await respuesta.json()
-        console.log('Respuesta del servidor:', data)
+        const texto = await respuesta.text()
+console.log('Respuesta del servidor (texto):', texto)
+
       } catch (error) {
         console.error('Error al enviar la solicitud:', error)
       }
 
-      console.log('Datos de descarga enviados' + fecha + accion);
+      
     }  
     }
   
