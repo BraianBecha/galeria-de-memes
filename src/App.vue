@@ -53,6 +53,7 @@ main{
 }
 </style >
 <script>
+import { onMounted } from 'vue';
 import { ref } from 'vue';
 export default {
   
@@ -67,12 +68,16 @@ export default {
   },
   mounted(){
     
+   
   },
    methods:{
 changeFlag(valor){
   this.islate = valor;
   console.log("llamada a changeFlag  " + this.flag );
-    }
+    },
+
+
+
   
 },
 setup() {
@@ -84,10 +89,77 @@ setup() {
    
     //console.log("llamada a receiveIsLate  " + islate.value );
    };
-    return {
+   
+   
+    const enviarDescarga = async () => {
+      console.log('Enviando datos al servidor...')
+
+      const payload = {
+        fecha: new Date().toISOString(),
+        accion: "Descarga"
+      }
+
+      try {
+        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+
+        if (!respuesta.ok) {
+          throw new Error(`Error HTTP: ${respuesta.status}`)
+        }
+
+        const data = await respuesta.json()
+        console.log('Respuesta del servidor:', data)
+      } catch (error) {
+        console.error('Error al enviar la solicitud:', error)
+      }
+    }
+
+
+    const enviarDatos = async () => {
+      console.log('Enviando datos al servidor...')
+
+      const payload = {
+        fecha: new Date().toISOString(),
+        accion: "Ingreso"
+      }
+
+      try {
+        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+
+        if (!respuesta.ok) {
+          throw new Error(`Error HTTP: ${respuesta.status}`)
+        }
+
+        const data = await respuesta.json()
+        console.log('Respuesta del servidor:', data)
+      } catch (error) {
+        console.error('Error al enviar la solicitud:', error)
+      }
+    }
+
+    onMounted(() => {
+      enviarDatos() 
+    })
+
+     return {
     islate,
-    receiveIsLate
-    };
+    receiveIsLate,
+    enviarDatos
+    }
+    
   }
+  
+
 };
 </script>

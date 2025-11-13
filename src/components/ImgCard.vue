@@ -15,7 +15,7 @@
                     </div> 
                     <div class="card-tools">
                        
-                    <div>    <a  :href = this.imgSrc download>   Descargar  </a> </div>  
+                    <div>   <a  :href = this.imgSrc download @click="enviarDescarga">   Descargar  </a> </div>  
                      
                     </div> 
               
@@ -42,6 +42,42 @@ export default {
                    
         }
     
+    },
+    methods:
+    {
+        incrementar(){
+            console.log('Descarga iniciada');
+        },
+     
+    async enviarDescarga(){
+      console.log('Enviando datos de descarga al servidor...')
+
+      const payload = {
+        fecha: new Date().toISOString(),
+        accion: `Descarga ${this.imgSrc}`
+      }
+
+      try {
+        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+
+        if (!respuesta.ok) {
+          throw new Error(`Error HTTP: ${respuesta.status}`)
+        }
+
+        const data = await respuesta.json()
+        console.log('Respuesta del servidor:', data)
+      } catch (error) {
+        console.error('Error al enviar la solicitud:', error)
+      }
+
+      console.log('Datos de descarga enviados' + fecha + accion);
+    }  
     }
   
 };
