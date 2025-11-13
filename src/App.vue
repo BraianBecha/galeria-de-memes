@@ -97,7 +97,9 @@ setup() {
       console.log('Enviando datos al servidor...')
 
       const payload = {
-        fecha: new Date().toISOString(),
+        fecha: new Date().toLocaleString("es-AR", {
+  timeZone: "America/Argentina/Buenos_Aires"
+}),
         accion: "Ingreso"
       }
 

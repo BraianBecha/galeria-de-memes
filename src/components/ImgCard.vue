@@ -53,7 +53,9 @@ export default {
       console.log('Enviando datos de descarga al servidor...')
 
       const payload = {
-        fecha: new Date().toISOString(),
+        fecha: new Date().toLocaleString("es-AR", {
+  timeZone: "America/Argentina/Buenos_Aires"
+}),
         accion: `Descarga ${this.imgSrc}`
       }
 
