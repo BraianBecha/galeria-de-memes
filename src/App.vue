@@ -11,7 +11,7 @@
   
 
   <div  v-if = "!islate">
-     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Familia y vínculos" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
+     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Crítica social" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
 
    
 
