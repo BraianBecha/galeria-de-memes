@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       unlinkfoto : "",
-      tiempofinal:"2025-11-12T12:58:00",     
+      tiempofinal:"2025-11-14T12:58:00",     
       valorprueba: Boolean(false),
       flag: false
       
