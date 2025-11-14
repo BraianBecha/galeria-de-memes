@@ -96,19 +96,20 @@ setup() {
     const enviarDatos = async () => {
       console.log('Enviando datos al servidor...')
 
+       const fecha = new Date();
+       const offsetMs = fecha.getTimezoneOffset() * 60 * 1000;
+       const fechaLocal = new Date(fecha.getTime() - offsetMs);
+       const fechaISOArgentina = fechaLocal.toISOString().slice(0, -1); 
+       
       const payload = {
-        fecha: new Date().toLocaleString("es-AR", {
-  timeZone: "America/Argentina/Buenos_Aires"
-}),
-        accion: "Ingreso"
+       fecha: fechaISOArgentina,
+       accion: `Ingreso`
       }
 
       try {
         const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: {'Content-Type': 'application/json'          },
           body: JSON.stringify(payload)
         })
 
@@ -118,6 +119,7 @@ setup() {
 
         const texto = await respuesta.text()
         console.log('Respuesta del servidor (texto):', texto)
+         console.log('Payload enviado:', JSON.stringify(payload));
 
       } catch (error) {
         console.error('Error al enviar la solicitud:', error)

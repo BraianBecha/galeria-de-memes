@@ -13,11 +13,11 @@
           <br>          
                 </p>                      
                     </div> 
-                    <div class="card-tools">
+                   
                        
-                    <div>   <a  :href = this.imgSrc download @click="enviarDescarga">   Descargar  </a> </div>  
-                     
-                    </div> 
+                   <!--  <div class="card-tools">   <a  :href = this.imgSrc download @click="enviarDescarga">   Descargar  </a> </div>   -->
+                     <button class="card-tools" @click="descargarImagen">Descargar imagen</button>
+                   
               
                 </div>
                  <div class="contexto">                   
@@ -45,27 +45,39 @@ export default {
     },
     methods:
     {
-        incrementar(){
+        descargarImagen(){
             console.log('Descarga iniciada');
+            this.enviarDescarga();
+            const link = document.createElement('a')
+            link.href = this.imgSrc
+            link.download = this.imgSrc.substring(this.imgSrc.lastIndexOf('/') + 1) 
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
         },
      
     async enviarDescarga(){
       console.log('Enviando datos de descarga al servidor...')
-
+       
+      
+       const fecha = new Date();
+       const offsetMs = fecha.getTimezoneOffset() * 60 * 1000;
+       const fechaLocal = new Date(fecha.getTime() - offsetMs);
+       const fechaISOArgentina = fechaLocal.toISOString().slice(0, -1); 
+       
       const payload = {
-        fecha: new Date().toLocaleString("es-AR", {
-  timeZone: "America/Argentina/Buenos_Aires"
-}),
-        accion: `Descarga ${this.imgSrc}`
+       fecha: fechaISOArgentina,
+       accion: `Descarga de imagen ${this.imgSrc}`
       }
 
       try {
         const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
           method: 'POST',
-          headers: {
+             headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(payload)
+         
         })
 
         if (!respuesta.ok) {
@@ -171,7 +183,7 @@ console.log('Respuesta del servidor (texto):', texto)
 
 }
 
-.card-tools > div{
+.card-tools {
 background-color: var(--color-purpura); ;
     color: beige;
     font-size: 1rem ;
