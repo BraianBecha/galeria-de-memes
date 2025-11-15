@@ -11,7 +11,7 @@
   
 
   <div  v-if = "!islate">
-     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Crítica social" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
+     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Estados de ánimo" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
 
    
 
@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       unlinkfoto : "",
-      tiempofinal:"2025-11-14T12:58:00",     
+      tiempofinal:"2025-11-16T15:58:00",     
       valorprueba: Boolean(false),
       flag: false
       
