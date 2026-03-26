@@ -1,4 +1,4 @@
-# A,azing Flash Gallery
+# Amazing Flash Gallery
 Galería de imágenes por tiempo limitado.
 Una cuenta regresiva marca el tiempo restante.
 Una vez finalizado, ya no se permiten descargas y aparece un mensaje de agradecimiento por participar.
