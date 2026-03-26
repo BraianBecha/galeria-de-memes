@@ -67,39 +67,7 @@ export default {
    methods:{
            receiveIsLate(valor) { this.islate = valor; },
            changeFlag(valor){  this.islate = valor;},  
-     /*
-     async enviarDatos() {                         
-      console.log('Enviando datos al servidor...')
-
-       const fecha = new Date();
-       const offsetMs = fecha.getTimezoneOffset() * 60 * 1000;
-       const fechaLocal = new Date(fecha.getTime() - offsetMs);
-       const fechaISOArgentina = fechaLocal.toISOString().slice(0, -1); 
-       
-      const payload = {
-       fecha: fechaISOArgentina,
-       accion: `Ingreso`
-      }
-      try {
-        const respuesta = await fetch('', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'          },
-          body: JSON.stringify(payload)
-        })3
-
-        if (!respuesta.ok) {
-          throw new Error(`Error HTTP: ${respuesta.status}`)
-        }
-
-        const texto = await respuesta.text()
-        console.log('Respuesta del servidor (texto):', texto)
-         console.log('Payload enviado:', JSON.stringify(payload));
-
-      } catch (error) {
-        console.error('Error al enviar la solicitud:', error)
-      }
-
-                       }   */
+    
 },
 
 
