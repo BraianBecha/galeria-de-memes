@@ -65,12 +65,10 @@ export default {
    
   },
    methods:{
-     receiveIsLate(valor) { this.islate = valor; },
-     changeFlag(valor){  this.islate = valor;
-  console.log("llamada a changeFlag  " + this.flag );
-                      },  
-                      async enviarDatos() { 
-                        
+           receiveIsLate(valor) { this.islate = valor; },
+           changeFlag(valor){  this.islate = valor;},  
+     /*
+     async enviarDatos() {                         
       console.log('Enviando datos al servidor...')
 
        const fecha = new Date();
@@ -82,13 +80,12 @@ export default {
        fecha: fechaISOArgentina,
        accion: `Ingreso`
       }
-
       try {
-        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
+        const respuesta = await fetch('', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'          },
           body: JSON.stringify(payload)
-        })
+        })3
 
         if (!respuesta.ok) {
           throw new Error(`Error HTTP: ${respuesta.status}`)
@@ -102,63 +99,10 @@ export default {
         console.error('Error al enviar la solicitud:', error)
       }
 
-                       }
+                       }   */
 },
 
-/*
-setup() {
 
- let islate = ref(false);
- function receiveIsLate(valor){
-    
-   islate.value = valor;
-   
-    //console.log("llamada a receiveIsLate  " + islate.value );
-   };
-       const enviarDatos = async () => {
-      console.log('Enviando datos al servidor...')
-
-       const fecha = new Date();
-       const offsetMs = fecha.getTimezoneOffset() * 60 * 1000;
-       const fechaLocal = new Date(fecha.getTime() - offsetMs);
-       const fechaISOArgentina = fechaLocal.toISOString().slice(0, -1); 
-       
-      const payload = {
-       fecha: fechaISOArgentina,
-       accion: `Ingreso`
-      }
-
-      try {
-        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'          },
-          body: JSON.stringify(payload)
-        })
-
-        if (!respuesta.ok) {
-          throw new Error(`Error HTTP: ${respuesta.status}`)
-        }
-
-        const texto = await respuesta.text()
-        console.log('Respuesta del servidor (texto):', texto)
-         console.log('Payload enviado:', JSON.stringify(payload));
-
-      } catch (error) {
-        console.error('Error al enviar la solicitud:', error)
-      }
-    }
-
-    onMounted(() => {
-      enviarDatos() 
-    })
-
-     return {
-    islate,
-    receiveIsLate,
-    enviarDatos
-    }
-    
-  }*/
   
 
 };
