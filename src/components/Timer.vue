@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { defineEmits } from 'vue';
+
 
   export default {
     props: [
@@ -67,16 +67,7 @@ this.$emit('time-state', this.itslate)
 },
 
 
-traducirHora(date){
-  const days = Math.floor(date / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((date % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((date % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((date % (1000 * 60)) / 1000);
-let answer= `${days}d ${hours}h ${minutes}m ${seconds}s`;
-return answer;
-                },
-
-                
+               
     changeFlag(){
       this.$emit('time-state', !this.itslate)
                   },
