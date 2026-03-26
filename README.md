@@ -1,38 +1,9 @@
-# volquete-de-memes
+# A,azing Flash Gallery
+Galería de imágenes por tiempo limitado.
+Una cuenta regresiva marca el tiempo restante.
+Una vez finalizado, ya no se permiten descargas y aparece un mensaje de agradecimiento por participar.
+El diseño se adapta a distintos tamaños de pantalla.
+Técnicamente, el proyecto se hizo en Vue.js y Options API.
+La fecha de finalización se fija en una variable, de igual manera los textos. Una imagen fue generada por IA.
+El código es mantenible y escalable, con componentes reutilizables y una organización clara.
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
