@@ -39,7 +39,7 @@ import { defineEmits } from 'vue';
     data(){
       return{
         
-         tiemporestantedisplay:'',
+        
          tiempoactual: new Date().getTime(),
          tiempofinalset:new Date(this.tiempofinalsetprop).getTime(),
          tiemporestante : new Date().getTime(),
@@ -63,7 +63,7 @@ import { defineEmits } from 'vue';
 
     methods:{
 ticTac(){
-  this.$emit('update:tiemporestantedisplay', this.tiemporestantedisplay);
+  
 console.log("ticTac() llamado");
  this.tiempoactual = new Date().getTime();   
 this.tiemporestante = this.tiempofinalset - this.tiempoactual;
@@ -75,7 +75,7 @@ if(this.tiemporestante < 0){
 
 }
 this.$emit('time-state', this.itslate)
-this.tiemporestantedisplay= this.traducirHora(this.tiemporestante);
+
 },
 
 
@@ -93,20 +93,20 @@ return answer;
       this.$emit('time-state', !this.itslate)
                   },
 
-     computed: {
+    
 
-      /*
-    computedValue: {
-      get() {
-        return this.tiemporestantedisplay;
-      },
-      set(newValue) {
-        this.$emit('update:modelValue', this.tiemporestantedisplay);
-      }
-    }*/
-  }
+  },
 
+  computed: {
+  tiemporestantedisplay() {
+    const date = this.tiemporestante;
+    const days = Math.floor(date / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((date % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((date % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((date % (1000 * 60)) / 1000);
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   }
+}
   }
 
 </script>

@@ -74,12 +74,10 @@ export default {
 changeFlag(valor){
   this.islate = valor;
   console.log("llamada a changeFlag  " + this.flag );
-    },
-
-
-
-  
+    },  
 },
+
+
 setup() {
 
  let islate = ref(false);

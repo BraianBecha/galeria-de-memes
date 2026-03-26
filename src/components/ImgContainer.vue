@@ -6,8 +6,6 @@
          <img-card v-for="(uri, i) in uris" :key = "i" :imgSrc = "uri" description = "Sin descripción" />  
 
     </div>
-
-
 </template>
 <script>
 export default {
