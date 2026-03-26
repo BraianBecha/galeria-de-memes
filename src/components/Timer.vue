@@ -5,9 +5,7 @@
     <div class="timer-timer">
 
     <div class="img-container">  
-<!-- 
-<img class="img-timer" src="../../public/reloj-icono.png" alt="ícono de reloj de arena" />
--->
+
 <img class="img-timer" src="../assets/camion.png" alt="ícono de reloj de arena" />
 
 </div>
@@ -17,9 +15,6 @@
     <h3 id="texto2"> {{ texto2 }} : </h3>
     <h3 id="tiempo"> {{ this.tiemporestantedisplay }} </h3>
 
-<!-- 
-<button @click="changeFlag"> Simulate Timeout </button>
--->
 
     </div>
 
@@ -38,7 +33,6 @@ import { defineEmits } from 'vue';
 
     data(){
       return{
-        
         
          tiempoactual: new Date().getTime(),
          tiempofinalset:new Date(this.tiempofinalsetprop).getTime(),
@@ -64,18 +58,12 @@ import { defineEmits } from 'vue';
     methods:{
 ticTac(){
   
-console.log("ticTac() llamado");
+console.log("ticTac() llamado" + this.tiempofinalset + "  " + this.tiempoactual + "  " + this.tiemporestante);
  this.tiempoactual = new Date().getTime();   
 this.tiemporestante = this.tiempofinalset - this.tiempoactual;
-if(this.tiemporestante < 0){
-  this.itslate= true;
- 
-}else{
-  this.itslate= false;
-
-}
+if(this.tiemporestante < 0){this.itslate= true;}
+else{ this.itslate= false;}
 this.$emit('time-state', this.itslate)
-
 },
 
 
@@ -104,7 +92,7 @@ return answer;
     const hours = Math.floor((date % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((date % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((date % (1000 * 60)) / 1000);
-    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    return `${days} D ${hours} H ${minutes} Min ${seconds} Seg`;
   }
 }
   }
@@ -114,8 +102,7 @@ return answer;
 <style>
  
 @import url('../assets/main.css');
- /*
-@import url('../assets/base.css');   */
+ 
 
 .img-timer{
 margin: auto;

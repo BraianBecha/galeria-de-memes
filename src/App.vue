@@ -54,7 +54,7 @@ export default {
     return {
       islate : false,
       unlinkfoto : "",
-      tiempofinal:"2027-03-26T16:28:00",     
+      tiempofinal:"2027-03-26T17:00:00",     
       valorprueba: Boolean(false),
       flag: false
       
