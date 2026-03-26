@@ -11,7 +11,7 @@
   
 
   <div  v-if = "!islate">
-     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Memes antigüos" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="this.tiempofinal"/> 
+     <timer @flag="changeFlag" @time-state="receiveIsLate" texto-1="Temática: Memes antigüos" texto-2="Estas imágenes se trasladarán a los vertederos del olvido en"  :tiempofinalsetprop ="tiempofinal"/> 
 
    
 
@@ -23,17 +23,10 @@
     <mensaje-de-fin mensaje1="Se terminó el tiempo" mensaje2="¡Gracias por participar!" mensaje3="---"/>
     </div>
 
-
-    
     
   </main>
 
-
-
   <footer>
-
-
-
     <footer-component/>
 
 
@@ -53,31 +46,66 @@ main{
 }
 </style >
 <script>
-import { onMounted } from 'vue';
-import { ref } from 'vue';
+
+
 export default {
   
   data() {
     return {
+      islate : false,
       unlinkfoto : "",
-      tiempofinal:"2028-11-16T15:58:00",     
+      tiempofinal:"2027-03-26T16:28:00",     
       valorprueba: Boolean(false),
       flag: false
       
     };
   },
   mounted(){
-    
+    this.enviarDatos();
    
   },
    methods:{
-changeFlag(valor){
-  this.islate = valor;
+     receiveIsLate(valor) { this.islate = valor; },
+     changeFlag(valor){  this.islate = valor;
   console.log("llamada a changeFlag  " + this.flag );
-    },  
+                      },  
+                      async enviarDatos() { 
+                        
+      console.log('Enviando datos al servidor...')
+
+       const fecha = new Date();
+       const offsetMs = fecha.getTimezoneOffset() * 60 * 1000;
+       const fechaLocal = new Date(fecha.getTime() - offsetMs);
+       const fechaISOArgentina = fechaLocal.toISOString().slice(0, -1); 
+       
+      const payload = {
+       fecha: fechaISOArgentina,
+       accion: `Ingreso`
+      }
+
+      try {
+        const respuesta = await fetch('https://hook.us2.make.com/msk1ra5ipt93i0ii6b7w4539ifeqhzey', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'          },
+          body: JSON.stringify(payload)
+        })
+
+        if (!respuesta.ok) {
+          throw new Error(`Error HTTP: ${respuesta.status}`)
+        }
+
+        const texto = await respuesta.text()
+        console.log('Respuesta del servidor (texto):', texto)
+         console.log('Payload enviado:', JSON.stringify(payload));
+
+      } catch (error) {
+        console.error('Error al enviar la solicitud:', error)
+      }
+
+                       }
 },
 
-
+/*
 setup() {
 
  let islate = ref(false);
@@ -87,11 +115,7 @@ setup() {
    
     //console.log("llamada a receiveIsLate  " + islate.value );
    };
-   
-   
-
-
-    const enviarDatos = async () => {
+       const enviarDatos = async () => {
       console.log('Enviando datos al servidor...')
 
        const fecha = new Date();
@@ -134,7 +158,7 @@ setup() {
     enviarDatos
     }
     
-  }
+  }*/
   
 
 };
